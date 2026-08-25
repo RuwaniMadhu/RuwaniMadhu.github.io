@@ -1547,6 +1547,75 @@
       border-color: var(--gold-light);
     }
 
+    /* ─── ICON ROTATION ANIMATIONS ─── */
+    .skill-card-icon,
+    .project-icon,
+    .exp-icon,
+    .contact-item-icon,
+    .cert-icon,
+    .edu-dot,
+    .highlight-icon {
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s, color 0.3s;
+    }
+
+    .skill-card-icon i,
+    .project-icon i,
+    .exp-icon i,
+    .contact-item-icon i,
+    .cert-icon i,
+    .edu-dot i,
+    .highlight-icon i {
+      display: inline-block;
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .skill-card:hover .skill-card-icon,
+    .project-card:hover .project-icon,
+    .exp-card:hover .exp-icon,
+    .contact-item:hover .contact-item-icon,
+    .cert-card:hover .cert-icon,
+    .edu-item:hover .edu-dot,
+    .highlight-item:hover .highlight-icon {
+      transform: rotate(360deg) scale(1.08);
+    }
+
+    .theme-toggle i {
+      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .theme-toggle:hover i {
+      transform: rotate(180deg);
+    }
+
+    .social-link i {
+      display: inline-block;
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .social-link:hover i {
+      transform: rotate(360deg);
+    }
+
+    /* gentle continuous spin for the hero badge dot's ring, and a slow ambient rotation
+       on the profile ring's corner accent for a touch of life without being distracting */
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .profile-ring::after {
+      content: '';
+      position: absolute;
+      top: -30%;
+      left: -30%;
+      width: 160%;
+      height: 160%;
+      background: conic-gradient(from 0deg, transparent 0%, rgba(200,150,60,0.18) 8%, transparent 16%, transparent 50%, rgba(74,159,224,0.15) 58%, transparent 66%, transparent 100%);
+      animation: spinSlow 14s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
       nav {
@@ -1704,7 +1773,7 @@
       <p class="hero-subtitle">Accounting & Finance undergraduate with equal grounding in <strong>Accounting</strong>
         and <strong>Audit & Assurance</strong> — studying HNDA, CA Sri Lanka Business Level, and Banking & Finance, with
         practical knowledge of financial statement preparation, audit documentation, internal controls, and evidence
-        review. Currently working as a <strong>Trainee Account Assistant</strong> in Colombo.</p>
+        review.</p>
       <div class="hero-actions">
         <a href="#qualifications" class="btn-primary"><i class="fas fa-graduation-cap"></i> My Qualifications</a>
         <a href="#contact" class="btn-outline"><i class="fas fa-paper-plane"></i> Get in Touch</a>
@@ -1723,8 +1792,8 @@
           <div class="stat-label">& Accounting</div>
         </div>
         <div class="stat-item">
-          <div class="stat-num">Aug '26</div>
-          <div class="stat-label">Working Since</div>
+          <div class="stat-num">2+</div>
+          <div class="stat-label">Diplomas Earned</div>
         </div>
       </div>
     </div>
@@ -1750,8 +1819,8 @@
             (IBSL), so I bring accounting precision, an auditor's eye for detail, and a broader understanding of banking
             operations. I am hardworking, honest, and eager to apply this knowledge to support an accounting or audit
             team. I can work confidently in both Sinhala and English.</p>
-<p>Since <strong>August 2026</strong>, I have been putting this knowledge into practice as an <strong>Account
-            Assistant</strong>, supporting the Finance & Accounts department with real, hands-on accounting work — giving
+<p>I have also been putting this knowledge into practice as an <strong>Account
+            Assistant</strong>, supporting a Finance & Accounts department with real, hands-on accounting work — giving
             me practical workplace experience alongside my academic qualifications.</p>
         </div>
 
@@ -1789,7 +1858,7 @@
             <div class="highlight-icon hi-purple"><i class="fas fa-hotel"></i></div>
             <div class="highlight-content">
               <h4>Practical Experience</h4>
-              <p>Working as a Trainee Account Assistant at Pearl Grand By Rathna, Colombo, since August 2026.</p>
+              <p>Working as a Trainee Account Assistant at Pearl Grand By Rathna, Colombo.</p>
             </div>
           </div>
         </div>
@@ -1995,39 +2064,6 @@
       </div>
     </div>
   </section>
-
-  <!-- WORK EXPERIENCE 
-  <section id="work-experience">
-    <div class="section-inner">
-      <div class="section-label">04 — Work Experience</div>
-      <h2 class="section-title">Hands-On Experience</h2>
-      <p class="section-desc">Putting my accounting and audit coursework into practice in a real finance department.
-      </p>
-
-      <div style="display:flex; flex-direction:column; gap:20px;">
-        <div class="exp-card reveal">
-          <div class="exp-icon"
-            style="background: linear-gradient(135deg, rgba(33,113,199,0.16), rgba(33,113,199,0.06)); border: 1px solid rgba(33,113,199,0.22); color: var(--primary);">
-            <i class="fas fa-hotel"></i></div>
-          <div>
-            <div class="exp-period">August 2026 — Present</div>
-            <h3 class="exp-title">Trainee Account Assistant</h3>
-            <p class="exp-company">Pearl Grand By Rathna, Colombo</p>
-            <ul class="exp-achievements">
-              <li>Working in the Finance & Accounts department, applying my HNDA and Auditing & Assurance
-                coursework in a live hotel business environment.</li>
-              <li>Assisting with day-to-day accounting tasks, including invoice processing, data entry, and
-                maintaining accurate financial records.</li>
-              <li>Supporting the finance team with reconciliations, documentation, and filing — building
-                practical, hands-on internal control awareness.</li>
-              <li>Gaining first-hand exposure to hotel industry finance operations alongside my ongoing HNDA, CA
-                Sri Lanka, and IBSL studies.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>-->
 
   <!-- LANGUAGES & STRENGTHS -->
   <section id="experience">
@@ -2303,7 +2339,7 @@
     }
 
     // Animated typing roles (hero)
-    const typedRoles = ["Trainee Account Assistant.", "Audit & Assurance.", "Accounting & Finance."];
+    const typedRoles = ["Trainee Account Assistant.", "Trainee Audit Assistant.", "Audit & Assurance.", "Accounting & Finance."];
     const typedEl = document.getElementById('typedRole');
     let roleIndex = 0, charIndex = 0, deleting = false;
 
